@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 public class ClassTest {
     Human BXT = new Human();
     private String name;
@@ -38,5 +40,16 @@ class SubTest extends ClassTest {
     public String GetName() {
         String name = super.GetName();
         return "gg";
+    }
+
+    public int testfn(){
+        int x = 10;
+        return x;
+    }
+
+    public void ManArrayList(ArrayList array)
+    {
+        Human LQ = new Human("xiexie");
+        array.add(LQ);
     }
 }
