@@ -14,6 +14,7 @@ public class ClassTest {
 
     }
 
+
     public String GetName() {
         return this.name;
     }

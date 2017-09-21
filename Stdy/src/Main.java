@@ -9,8 +9,8 @@ import java.util.Scanner;
  */
 public class Main {
 
-    public static void main(String[] args)
-    {
+    public static void main(String[] args){
+        int i1 = 0;
         ClassTest ct1 = new ClassTest("ss", "dd");
         Scanner scan = new Scanner(System.in);
         String s1 = "abcdefg";
@@ -36,11 +36,29 @@ public class Main {
             e = new SubTest();
             System.out.println(e.testfn());
         }
-
+        Integer I1 = 10;
+        Integer I2 = 10;
+        if (I1 == I2)
+            System.out.println("yes");
+        I1.toString();
+        String si = Integer.toString(10,6);
         ArrayList<SubTest> ar1 = new ArrayList<SubTest>();
+        ArrayList ar2 = new ArrayList<>();
+        ArrayList<Integer> ar3 = new ArrayList<Integer>();
         sub1.ManArrayList(ar1);
        // ar1.add(new Human("gege"));
         System.out.println(ar1.toString());
+        System.out.println(si);
+        System.out.printf("%d%s\n", new Integer(10),"hao");
+        BXT.printTest();
+        System.out.println(double[].class);
+        try {
+            Object BXT2 = BXT.getClass().newInstance();
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
     }
 
 }
@@ -71,6 +89,25 @@ class Human {
     {
         return this.name;
     }
+
+    public enum Size{SMALL, MEDIUM, LARGE}
+
+    public enum Size2
+    {
+        SMALL("S"), MEDIUM("M"), LARGE("L");
+        private String info;
+        Size2(String info){this.info = info;}
+        public String getInfo(){return this.info;}
+    }
+
+    public void printTest()
+    {
+        Size2 sz2 = Size2.SMALL;
+        System.out.println(sz2);
+        System.out.println(sz2.getInfo());
+    }
+    Size[] ss = Size.values();
+    Size sz = Enum.valueOf(Size.class, "SMALL");
 
 }
 
