@@ -1,5 +1,7 @@
-import javafx.scene.media.SubtitleTrack;
-
+import javax.swing.*;
+import java.awt.event.ActionListener;
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -24,13 +26,22 @@ public class Main {
         Human BXT = new Human();
         System.out.println(BXT.nestjimbo());
         System.out.println(Human.poo());
-        SubTest[] subs = new SubTest[5];
+        SubTest[] subs = new SubTest[2];
         SubTest sub1 = new SubTest();
+        try {
+            sub1.clonei = 20;
+            SubTest sub2 = sub1.Clone();
+            System.out.println(sub2.clonei);
+        } catch (CloneNotSupportedException e) {
+            e.printStackTrace();
+        }
         System.out.println(sub1.testfn());
         ClassTest[] tsts = subs;
         tsts[0] = sub1;
         tsts[0].GetBXTAge();
-        
+
+        ct1.dididi();
+
         for (SubTest e : subs)
         {
             e = new SubTest();
@@ -59,15 +70,36 @@ public class Main {
         {
             e.printStackTrace();
         }
+        Class cl = BXT.getClass();
+        Field f1 = null;
+        try {
+            f1 = cl.getDeclaredField("name");
+            f1.setAccessible(true);
+            System.out.println(f1.get(BXT));
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Method m1 = Math.class.getMethod("sqrt", double.class);
+            double y = (Double)m1.invoke(null, 0.5);
+            System.out.println(y);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+
+
+
     }
 
 }
 
 class Human {
     private static String s = "pooo";
-    private int age;
+    private int Age;
     private int height;
-    private String name;
+    private String name = "unknown";
     public Human(){}
     public Human(String name){this.name = name;}
     public static String poo() {
@@ -76,9 +108,9 @@ class Human {
 
 
     public int jimbo() {
-        age = 10;
+        Age = 10;
         height = 20;
-        return age;
+        return Age;
     }
 
     public int nestjimbo() {
@@ -108,6 +140,17 @@ class Human {
     }
     Size[] ss = Size.values();
     Size sz = Enum.valueOf(Size.class, "SMALL");
+    jiji jjj = new jiji(10);
+    int jji = jjj.jijiage();
+    int jjji = jjj.jijijimbo();
+
+    public class jiji
+    {
+        public jiji(int i){Age = i;}
+        public int jijiage(){return Age;}
+        public final void jijilength(int i){System.out.println(i);}
+        public int jijijimbo(){return Human.this.jimbo();}
+    }
 
 }
 
