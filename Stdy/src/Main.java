@@ -1,27 +1,58 @@
-import javax.swing.*;
-import java.awt.event.ActionListener;
+import com.myjava.Practice.Util.Human;
+
+import java.io.IOException;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.logging.*;
+import java.util.logging.LogRecord;
+
+import com.myjava.Practice.Classtest.ClassTest;
+import com.myjava.Practice.Classtest.SubTest;
 
 /**
  * my first java program
  * helps to understand java
  */
-public class Main {
+public class Main implements Filter{
+    public boolean isLoggable(LogRecord record) {
+        return false;
+    }
+    public static void main(String[] args) throws IOException {
+        Handler myHandler = new ConsoleHandler();
+        FileHandler myFileHandler = new FileHandler("E:/0Self-learning/gitjava/java%u.log",true);
 
-    public static void main(String[] args){
+        Filter myFilter = record -> {
+            return record.getMessage().contains("ENTRY");
+        };
+        myHandler.setLevel(Level.FINER);
+        final Logger myLogger = Logger.getLogger("1");
+        myLogger.addHandler(myHandler);
+        myLogger.addHandler(myFileHandler);
+        myLogger.setFilter(myFilter);
+        myLogger.setLevel(Level.FINER);
+        myLogger.setUseParentHandlers(false);
+        myLogger.log(Level.FINE,"LogTest");
+        Thread.setDefaultUncaughtExceptionHandler((t, e) -> {Logger.getGlobal().log(Level.WARNING, "uncaught");
+        });
+        Thread.dumpStack();
+
+
         int i1 = 0;
         ClassTest ct1 = new ClassTest("ss", "dd");
         Scanner scan = new Scanner(System.in);
         String s1 = "abcdefg";
         String s2 = s1.replace("a", "z");
-        System.out.println(s1);
-        System.out.println(s2);
+        myLogger.logp(Level.WARNING, "Main2", "Main2","Logp");
+        myLogger.entering("Main1", "Main1", new Object[]{s1,s2});
+        myLogger.log(Level.INFO,"LogTest");
+        myLogger.exiting("Main1", "Main1", "finished");
+        // System.out.println(s1);
+        //  System.out.println(s2);
         //     String s1 = scan.nextLine();
         double d1 = -100000 / 3.0;
-        System.out.printf("%s %s", d1, ct1.GetName());
+        System.out.printf("%s %s", d1, ct1.getName());
         System.out.println("Hello World!");
         Human BXT = new Human();
         System.out.println(BXT.nestjimbo());
@@ -40,7 +71,7 @@ public class Main {
         tsts[0] = sub1;
         tsts[0].GetBXTAge();
 
-        ct1.dididi();
+        //   ct1.dididi();
 
         for (SubTest e : subs)
         {
@@ -57,7 +88,8 @@ public class Main {
         ArrayList ar2 = new ArrayList<>();
         ArrayList<Integer> ar3 = new ArrayList<Integer>();
         sub1.ManArrayList(ar1);
-       // ar1.add(new Human("gege"));
+        System.out.println(sub1.getName());
+        // ar1.add(new Human("gege"));
         System.out.println(ar1.toString());
         System.out.println(si);
         System.out.printf("%d%s\n", new Integer(10),"hao");
@@ -91,65 +123,6 @@ public class Main {
 
 
 
-    }
-
-}
-
-class Human {
-    private static String s = "pooo";
-    private int Age;
-    private int height;
-    private String name = "unknown";
-    public Human(){}
-    public Human(String name){this.name = name;}
-    public static String poo() {
-        return s;
-    }
-
-
-    public int jimbo() {
-        Age = 10;
-        height = 20;
-        return Age;
-    }
-
-    public int nestjimbo() {
-        ClassTest ct = new ClassTest("oo", "kk");
-        return ct.GetBXTAge();
-    }
-    public String toString()
-    {
-        return this.name;
-    }
-
-    public enum Size{SMALL, MEDIUM, LARGE}
-
-    public enum Size2
-    {
-        SMALL("S"), MEDIUM("M"), LARGE("L");
-        private String info;
-        Size2(String info){this.info = info;}
-        public String getInfo(){return this.info;}
-    }
-
-    public void printTest()
-    {
-        Size2 sz2 = Size2.SMALL;
-        System.out.println(sz2);
-        System.out.println(sz2.getInfo());
-    }
-    Size[] ss = Size.values();
-    Size sz = Enum.valueOf(Size.class, "SMALL");
-    jiji jjj = new jiji(10);
-    int jji = jjj.jijiage();
-    int jjji = jjj.jijijimbo();
-
-    public class jiji
-    {
-        public jiji(int i){Age = i;}
-        public int jijiage(){return Age;}
-        public final void jijilength(int i){System.out.println(i);}
-        public int jijijimbo(){return Human.this.jimbo();}
     }
 
 }
