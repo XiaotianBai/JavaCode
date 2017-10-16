@@ -27,7 +27,8 @@ public class ClassTest implements Comparable<ClassTest>, TestInterface, ActionLi
         this.job = s2;
 
     }
-
+    @Override
+    public String toString(){return this.name;}
     public String getName(){return this.name;}
 
     public String getName2(){return this.name;}
@@ -84,7 +85,6 @@ public class ClassTest implements Comparable<ClassTest>, TestInterface, ActionLi
     public int GetBXTAge() {
         return BXT.jimbo();
     }
-
 
 }
 

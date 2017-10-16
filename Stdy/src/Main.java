@@ -1,3 +1,4 @@
+import com.myjava.Practice.Classtest.GenericTest;
 import com.myjava.Practice.Util.Human;
 
 import java.io.IOException;
@@ -20,9 +21,10 @@ public class Main implements Filter{
         return false;
     }
     public static void main(String[] args) throws IOException {
-        Handler myHandler = new ConsoleHandler();
-        FileHandler myFileHandler = new FileHandler("E:/0Self-learning/gitjava/java%u.log",true);
 
+        //Logger Configuration
+        Handler myHandler = new ConsoleHandler();
+        FileHandler myFileHandler = new FileHandler("%h/gitjava/java%u.log",true);
         Filter myFilter = record -> {
             return record.getMessage().contains("ENTRY");
         };
@@ -38,7 +40,9 @@ public class Main implements Filter{
         });
         Thread.dumpStack();
 
+        //Logger Configuration
 
+        //Methods Tests
         int i1 = 0;
         ClassTest ct1 = new ClassTest("ss", "dd");
         Scanner scan = new Scanner(System.in);
@@ -84,17 +88,19 @@ public class Main implements Filter{
             System.out.println("yes");
         I1.toString();
         String si = Integer.toString(10,6);
-        ArrayList<SubTest> ar1 = new ArrayList<SubTest>();
+        ArrayList<SubTest> arr1 = new ArrayList<SubTest>();
         ArrayList ar2 = new ArrayList<>();
         ArrayList<Integer> ar3 = new ArrayList<Integer>();
-        sub1.ManArrayList(ar1);
+        sub1.ManArrayList(arr1);
         System.out.println(sub1.getName());
-        // ar1.add(new Human("gege"));
-        System.out.println(ar1.toString());
+        // arr1.add(new Human("gege"));
+        System.out.println(arr1.toString());
         System.out.println(si);
         System.out.printf("%d%s\n", new Integer(10),"hao");
         BXT.printTest();
         System.out.println(double[].class);
+
+        //Exception Tests
         try {
             Object BXT2 = BXT.getClass().newInstance();
         }
@@ -119,8 +125,11 @@ public class Main implements Filter{
         } catch (Exception e) {
             e.printStackTrace();
         }
+        //Generic Programming Test
 
-
+        GenericTest<String> g1= new GenericTest(1,1);
+        if(g1.compareByItself()) System.out.println("yes");
+        System.out.println(GenericTest.getMiddle(10,15,25));
 
 
     }
