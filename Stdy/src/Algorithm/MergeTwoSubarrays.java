@@ -1,12 +1,15 @@
 package Algorithm;
 
+import Algorithm.Util.RandomIntegerArray;
+
 import java.util.Arrays;
 
 public class MergeTwoSubarrays
 {
     public static void main(String[] args)
     {
-        Integer[] array = {111,222,333 ,3, 444,9, 6, 55, 8, 8, 2017, 666666, 123456, 8 };
+       // Integer[] array = {111,222,333 ,3, 444,9, 6, 55, 8, 8, 2017, 666666, 123456, 8 };
+        Integer[] array = RandomIntegerArray.generateArray(14,1,100);
         mergeSort(array, 0,13);
         System.out.print(Arrays.asList(array));
     }
