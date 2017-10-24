@@ -93,7 +93,7 @@ public class Main implements Filter{
         ArrayList<Integer> ar3 = new ArrayList<Integer>();
         sub1.ManArrayList(arr1);
         System.out.println(sub1.getName());
-        // arr1.add(new Human("gege"));
+        // arr1.add(new com.myjava.Practice.Toys.Human("gege"));
         System.out.println(arr1.toString());
         System.out.println(si);
         System.out.printf("%d%s\n", new Integer(10),"hao");

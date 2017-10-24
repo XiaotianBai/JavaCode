@@ -1,3 +1,5 @@
+package com.myjava.Practice.Toys;
+
 import com.myjava.Practice.Classtest.ClassTest;
 
 public class Human {
