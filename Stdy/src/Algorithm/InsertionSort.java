@@ -22,6 +22,13 @@ public class InsertionSort
         Integer[] numbers = {2017,4,3,9,6,7,1};
         al.addAll(Arrays.asList(numbers));
         int i =1;
+        sort(al);
+        System.out.print(al);
+        //for(int i = 2; i < al.size(); i++)
+
+    }
+    public static void sort(ArrayList<Integer> al)
+    {        int i =1;
         while(i < al.size())
         {
             int j = i - 1;
@@ -30,13 +37,11 @@ public class InsertionSort
             {
                 al.set(j+1, al.get(j));
                 al.set(j, key);
-              //  key = al.get(i);
+                //  key = al.get(i);
                 j = j - 1;
             }
             i = i + 1;
         }
-        System.out.print(al);
-        //for(int i = 2; i < al.size(); i++)
 
     }
 }
