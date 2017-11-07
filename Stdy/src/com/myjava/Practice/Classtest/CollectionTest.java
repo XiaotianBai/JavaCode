@@ -194,4 +194,9 @@ public class CollectionTest
         System.out.println("\n"+hash4);
         System.out.println(stringArray[1]);
     }
+
+    public static void playGround()
+    {
+
+    }
 }
