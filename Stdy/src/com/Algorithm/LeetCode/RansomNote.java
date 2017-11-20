@@ -2,7 +2,7 @@ package com.Algorithm.LeetCode;
 
 import java.util.Arrays;
 
-public class RandomNote {
+public class RansomNote {
     public static void main(String[] args){
         System.out.println(canConstruct("aa","aab"));
     }
