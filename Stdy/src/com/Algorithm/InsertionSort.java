@@ -12,19 +12,8 @@ public class InsertionSort
 {
     public static void main(String[] args)
     {
-        ArrayList<Integer> al = new ArrayList<>();
-        Scanner in = new Scanner(System.in);
-
-//        while(in.hasNext() && in.nextLine() != "z")
-//        {
-//            al.add(Integer.getInteger(in.next()));
-//        }
-        Integer[] numbers = {2017,4,3,9,6,7,1};
-        al.addAll(Arrays.asList(numbers));
-        int i =1;
-        sort(al);
-        System.out.print(al);
-        //for(int i = 2; i < al.size(); i++)
+        int arr[] = {25, 13, 10, 16, 5, 8, 1};
+        sortArray(arr);
 
     }
     public static void sort(ArrayList<Integer> al)
@@ -40,6 +29,24 @@ public class InsertionSort
                 //  key = al.get(i);
                 j = j - 1;
             }
+            i = i + 1;
+        }
+
+    }
+    private static void sortArray(int[] nums)
+    {
+        int i =1;
+        while(i < nums.length)
+        {
+            int j = i - 1;
+            int key = nums[i];
+            while(j >= 0 && nums[j] > key)
+            {
+                nums[j+1] = nums[j];
+                nums[j] = key;
+                j = j - 1;
+            }
+            System.out.println(Arrays.toString(nums));
             i = i + 1;
         }
 

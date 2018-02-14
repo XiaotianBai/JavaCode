@@ -6,13 +6,13 @@ public class MaxSubarray
 {
     public static void main(String[] args)
     {
-        Integer[] array = {-3,-2,-1,1,2,3,-1};
+        int[] array = {-3,-2,-1,1,2,3,-1};
        // Integer[] solution = findCrossingSubarray(array, 0,2,4);
-        Integer[] solution = findMaxSubarray(array,0,6);
-        System.out.print(Arrays.asList(solution));
+        int[] solution = findMaxSubarray(array,0,6);
+        System.out.print(Arrays.toString(solution));
     }
 
-    public static Integer[] findCrossingSubarray(Integer[] array, int startpoint, int midpoint, int endpoint)
+    public static int[] findCrossingSubarray(int[] array, int startpoint, int midpoint, int endpoint)
     {
         int sum = 0;
         int max = 0;
@@ -38,19 +38,19 @@ public class MaxSubarray
                 leftpoint = i;
             }
         }
-        return new Integer[] {leftpoint, rightpoint, max};
+        return new int[] {leftpoint, rightpoint, max};
     }
 
-    public static Integer[] findMaxSubarray(Integer[] array, int startpoint, int endpoint)
+    public static int[] findMaxSubarray(int[] array, int startpoint, int endpoint)
     {
-        Integer[] max;
-        if(startpoint == endpoint) return new Integer[] {startpoint, endpoint, array[startpoint]};
+        int[] max;
+        if(startpoint == endpoint) return new int[] {startpoint, endpoint, array[startpoint]};
         else
         {
             int midpoint = (int)Math.floor((startpoint + endpoint)/2);
-            Integer[] left = findMaxSubarray(array, startpoint, midpoint);
-            Integer[] right = findMaxSubarray(array, (midpoint + 1), endpoint);
-            Integer[] crossing = findCrossingSubarray(array, startpoint, midpoint, endpoint);
+            int[] left = findMaxSubarray(array, startpoint, midpoint);
+            int[] right = findMaxSubarray(array, (midpoint + 1), endpoint);
+            int[] crossing = findCrossingSubarray(array, startpoint, midpoint, endpoint);
             if(left[2] > right[2]) max = left;
             else max = right;
             if(crossing[2] > max[2]) max = crossing;
