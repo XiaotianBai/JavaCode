@@ -5,7 +5,8 @@ import java.util.List;
 
 public class BinaryTreePaths {
     List<String> ans = new ArrayList<>();
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         String s = "gg";
         root.left = new TreeNode(2);
@@ -18,7 +19,7 @@ public class BinaryTreePaths {
         System.out.println(s + "g");
     }
 
-    private List<String> binaryTreePaths(TreeNode root){
+    private List<String> binaryTreePaths(TreeNode root) {
 //        if(root == null) return ans;
 //        StringBuilder s = new StringBuilder();
 //        s.append(root.val);
@@ -29,25 +30,25 @@ public class BinaryTreePaths {
 //        if(root.left == null && root.right == null)
 //            this.ans.add(Integer.toString(root.val));
 //        return this.ans;
-        if(root == null) return ans;
+        if (root == null) return ans;
         String s = "";
         s = s + root.val;
-        if(root.left != null)
+        if (root.left != null)
             helper(s, root.left);
-        if(root.right != null)
+        if (root.right != null)
             helper(s, root.right);
-        if(root.left == null && root.right == null)
+        if (root.left == null && root.right == null)
             this.ans.add("" + root.val);
         return this.ans;
     }
 
-    private void helper(String s, TreeNode t){
+    private void helper(String s, TreeNode t) {
         s = s + "->" + t.val;
-        if(t.left != null)
+        if (t.left != null)
             helper(s, t.left);
-        if(t.right != null)
+        if (t.right != null)
             helper(s, t.right);
-        if(t.left == null && t.right == null){
+        if (t.left == null && t.right == null) {
             this.ans.add(s);
         }
 

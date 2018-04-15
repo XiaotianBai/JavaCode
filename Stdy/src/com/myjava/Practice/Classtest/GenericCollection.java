@@ -2,23 +2,24 @@ package com.myjava.Practice.Classtest;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 
-public class GenericCollection <T>{
+public class GenericCollection<T> {
 
     private T[] cl;
 
-    public <T> void addAll(Collection <T> collection, T...ts)
-    {
-        for(T t:ts){collection.add(t);}
+    public <T> void addAll(Collection<T> collection, T... ts) {
+        for (T t : ts) {
+            collection.add(t);
+        }
 
         System.out.print(collection.toString());
     }
-    public static void main(String[] args)
-    {
+
+    public static void main(String[] args) {
         Collection<String> cs = new Collection<String>() {
             private ArrayList<String> al = new ArrayList<>();
+
             @Override
             public int size() {
                 return 0;
@@ -43,9 +44,9 @@ public class GenericCollection <T>{
             public Object[] toArray() {
                 return new Object[0];
             }
+
             @Override
-            public String toString()
-            {
+            public String toString() {
                 return al.toString();
             }
 
@@ -92,7 +93,7 @@ public class GenericCollection <T>{
             }
         };
         GenericCollection<String> gc = new GenericCollection();
-        gc.addAll(cs, "s1","s2","s3" );
+        gc.addAll(cs, "s1", "s2", "s3");
     }
 
 }

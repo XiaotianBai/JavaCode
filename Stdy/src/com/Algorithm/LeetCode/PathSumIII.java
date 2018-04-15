@@ -2,7 +2,8 @@ package com.Algorithm.LeetCode;
 
 public class PathSumIII {
     int ans = 0;
-    public static void main(String[] args){
+
+    public static void main(String[] args) {
         TreeNode root = new TreeNode(1);
         root.left = new TreeNode(2);
         root.right = new TreeNode(3);
@@ -16,18 +17,18 @@ public class PathSumIII {
         System.out.println(pathSumIII.pathSum(root, 6));
     }
 
-    private int pathSum(TreeNode root, int sum){
-        if(root == null) return ans;
+    private int pathSum(TreeNode root, int sum) {
+        if (root == null) return ans;
         helper(root, sum, 0);
-        if(root.left != null) pathSum(root.left, sum);
-        if(root.right != null) pathSum(root.right, sum);
+        if (root.left != null) pathSum(root.left, sum);
+        if (root.right != null) pathSum(root.right, sum);
         return ans;
     }
 
-    private void helper(TreeNode root, int sum, int prev){
+    private void helper(TreeNode root, int sum, int prev) {
         int cur = prev + root.val;
-        if(cur == sum) ans++;
-        if(root.left != null) helper(root.left, sum, cur);
-        if(root.right != null) helper(root.right, sum, cur);
+        if (cur == sum) ans++;
+        if (root.left != null) helper(root.left, sum, cur);
+        if (root.right != null) helper(root.right, sum, cur);
     }
 }

@@ -3,15 +3,13 @@ package com.Algorithm.LeetCode;
 import java.util.ArrayList;
 
 public class BaseballGame {
-    public static void main(String[] args)
-    {
-        String[] ops ={"5", "2", "C", "D", "+"};
+    public static void main(String[] args) {
+        String[] ops = {"5", "2", "C", "D", "+"};
         String[] ops2 = {"5", "-2", "4", "C", "D", "9", "+", "+"};
         System.out.print(calPoints(ops2));
     }
 
-    public static int calPoints(String[] ops)
-    {
+    public static int calPoints(String[] ops) {
         int roundpoint = 0;
         int points = 0;
         ArrayList<Integer> validPoints = new ArrayList<>();

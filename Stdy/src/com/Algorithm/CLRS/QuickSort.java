@@ -27,6 +27,7 @@ public class QuickSort {
                     (stopTime - startTime) + "ms");
         }
     }
+
     public void lomutoQuickSort(int nums[]) {
         lomutoQuickSort(nums, 0, nums.length - 1);
 
@@ -99,6 +100,7 @@ public class QuickSort {
         nums[j] = nums[i];
         nums[i] = temp;
     }
+
     public static void sort(int[] array) {
 
         Quicksort(array, 0, array.length - 1);
@@ -135,26 +137,23 @@ public class QuickSort {
 
             } while (array[j] > x);
 
-            do  {
+            do {
 
                 i++;
 
             } while (array[i] < x);
 
-            if ( i < j ) {
+            if (i < j) {
 
                 int tmp = array[i];
                 array[i] = array[j];
                 array[j] = tmp;
 
-            }
-
-            else
+            } else
 
                 return j;
         }
     }
-
 
 
     public static String toString(int[] array) {

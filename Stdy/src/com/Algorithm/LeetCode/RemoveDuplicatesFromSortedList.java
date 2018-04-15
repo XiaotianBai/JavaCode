@@ -1,7 +1,7 @@
 package com.Algorithm.LeetCode;
 
 public class RemoveDuplicatesFromSortedList {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         ListNode head = new ListNode(1);
         head.next = new ListNode(1);
 //        head.next.next = new ListNode(2);
@@ -13,13 +13,13 @@ public class RemoveDuplicatesFromSortedList {
         System.out.println(ans.next.next.val);
     }
 
-    private static ListNode deleteDuplicates(ListNode head){
-        if(head == null) return null;
-        if(head.next == null) return head;
-        if(head.next.val == head.val) {
+    private static ListNode deleteDuplicates(ListNode head) {
+        if (head == null) return null;
+        if (head.next == null) return head;
+        if (head.next.val == head.val) {
             ListNode next = head.next;
             while (head.val == next.val) {
-                if(next.next != null)
+                if (next.next != null)
                     next = next.next;
                 else {
                     next = null;

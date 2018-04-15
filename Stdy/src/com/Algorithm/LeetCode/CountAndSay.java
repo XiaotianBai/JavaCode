@@ -1,9 +1,7 @@
 package com.Algorithm.LeetCode;
 
-import java.util.Arrays;
-
 public class CountAndSay {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         System.out.print(countAndSay(4));
     }
 
@@ -14,12 +12,12 @@ public class CountAndSay {
         int prevFreq = 0;
         StringBuilder sb = new StringBuilder();
         sb.append("1");
-        while(i < n){
+        while (i < n) {
             sb = new StringBuilder();
             prevChar = prev.charAt(0);
-            for(int j = 0; j < prev.length(); j++){
+            for (int j = 0; j < prev.length(); j++) {
                 char c = prev.charAt(j);
-                if(c == prevChar) prevFreq ++;
+                if (c == prevChar) prevFreq++;
                 else {
                     sb.append(prevFreq);
                     sb.append(prevChar);
@@ -31,7 +29,7 @@ public class CountAndSay {
             sb.append(prevChar);
             prev = sb.toString();
             prevFreq = 0;
-            i ++;
+            i++;
         }
         return prev;
     }

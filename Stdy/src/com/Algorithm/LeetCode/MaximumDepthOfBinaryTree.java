@@ -14,22 +14,21 @@ public class MaximumDepthOfBinaryTree {
         System.out.println(simpleSolution(t1));
     }
 
-    public static int maxDepth(TreeNode root)
-    {
+    public static int maxDepth(TreeNode root) {
         int level = 0;
         Queue<TreeNode> queue = new LinkedList<>();
-        if(root != null) {level++; queue.add(root);}
-        while(!queue.isEmpty())
-        {
+        if (root != null) {
+            level++;
+            queue.add(root);
+        }
+        while (!queue.isEmpty()) {
             Queue<TreeNode> temp = new LinkedList<>();
-            while(!queue.isEmpty())
-            {
+            while (!queue.isEmpty()) {
                 TreeNode n = queue.remove();
-                if(n.left != null) temp.add(n.left);
-                if(n.right != null) temp.add(n.right);
+                if (n.left != null) temp.add(n.left);
+                if (n.right != null) temp.add(n.right);
             }
-            if(!temp.isEmpty())
-            {
+            if (!temp.isEmpty()) {
                 level++;
                 queue = temp;
             }
@@ -37,11 +36,10 @@ public class MaximumDepthOfBinaryTree {
         return level;
     }
 
-    public static int simpleSolution(TreeNode root)
-    {
-        if(root==null){
+    public static int simpleSolution(TreeNode root) {
+        if (root == null) {
             return 0;
         }
-        return 1+Math.max(maxDepth(root.left),maxDepth(root.right));
+        return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
     }
 }

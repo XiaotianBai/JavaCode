@@ -1,16 +1,16 @@
 package com.myjava.Practice.Classtest;
 
-import java.awt.event.ActionListener;
+import com.myjava.Practice.Util.Human;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.function.IntConsumer;
-import com.myjava.Practice.Util.Human;
 
-interface TestInterface
-{
+interface TestInterface {
     String getName();
 }
+
 public class ClassTest implements Comparable<ClassTest>, TestInterface, ActionListener, Cloneable, IntConsumer {
     Human BXT = new Human();
 
@@ -27,52 +27,56 @@ public class ClassTest implements Comparable<ClassTest>, TestInterface, ActionLi
         this.job = s2;
 
     }
+
     @Override
-    public String toString(){return this.name;}
-    public String getName(){return this.name;}
+    public String toString() {
+        return this.name;
+    }
 
-    public String getName2(){return this.name;}
-   public ClassTest Clone() throws CloneNotSupportedException
-   {
-       ClassTest clone = (ClassTest)super.clone();
-       return clone;
-   }
+    public String getName() {
+        return this.name;
+    }
 
-    public void actionPerformed(ActionEvent event)
-    {
+    public String getName2() {
+        return this.name;
+    }
+
+    public ClassTest Clone() throws CloneNotSupportedException {
+        ClassTest clone = (ClassTest) super.clone();
+        return clone;
+    }
+
+    public void actionPerformed(ActionEvent event) {
         System.out.println("didi");
 
         //Toolkit.getDefaultToolkit().beep();
     }
 
 
-    public void didi()
-    {
-       // System.out.println("didi");
+    public void didi() {
+        // System.out.println("didi");
         ActionListener listener = new ClassTest();
-        Timer t =new Timer(1000, System.out::println);
+        Timer t = new Timer(1000, System.out::println);
         t.start();
         JOptionPane.showMessageDialog(null, "Quit program?");
         return;
         //System.exit(0);
     }
 
-    public int compareTo(ClassTest other)
-    {
+    public int compareTo(ClassTest other) {
         // return Integer.compare(this.i, other.i);
         return i - other.i;
     }
 
-    public void accept(int value){}
-
-    public static void repeat(int n, IntConsumer action)
-    {
-        for(int i=0; i < n; i++) action.accept(i);
+    public void accept(int value) {
     }
 
-    public void dididi()
-    {
-        repeat(10, i->System.out.println(i));
+    public static void repeat(int n, IntConsumer action) {
+        for (int i = 0; i < n; i++) action.accept(i);
+    }
+
+    public void dididi() {
+        repeat(10, i -> System.out.println(i));
         JOptionPane.showMessageDialog(null, "Quit program?");
         return;
 

@@ -5,18 +5,18 @@ import java.util.Arrays;
 import java.util.List;
 
 public class FindAllAnagramsInAString {
-    public static void main(String[] args){
+    public static void main(String[] args) {
         String s = "abadddddddba";
         String p = "ab";
         String ss = "cbaebabacd";
         String pp = "abc";
-        System.out.print(findAnagrams2(s,p));
-        System.out.print(findAnagrams2(ss,pp));
+        System.out.print(findAnagrams2(s, p));
+        System.out.print(findAnagrams2(ss, pp));
     }
 
     private static List<Integer> findAnagrams(String s, String p) {
         List<Integer> res = new ArrayList<>();
-        if(s.equals(p)){
+        if (s.equals(p)) {
             res.add(0);
             return res;
         }
@@ -25,18 +25,18 @@ public class FindAllAnagramsInAString {
         char[] cp = p.toCharArray();
         char[] cs = s.toCharArray();
         int[] ci = new int[128];
-        for(char c : cp) ci[c] ++;
-        for(int i = 0; i < limit; i ++){
+        for (char c : cp) ci[c]++;
+        for (int i = 0; i < limit; i++) {
 
-            for(int j = i; j < i + leng; j++){
-                if(ci[cs[j]] == 0){
+            for (int j = i; j < i + leng; j++) {
+                if (ci[cs[j]] == 0) {
                     i = j + 1;
                     break;
                 }
             }
-            if(i < limit && helper(s.substring(i, i + leng), p)) {
+            if (i < limit && helper(s.substring(i, i + leng), p)) {
                 res.add(i);
-                while(i < limit - 1 && cs[i] == cs[i + leng]){
+                while (i < limit - 1 && cs[i] == cs[i + leng]) {
                     i++;
                     res.add(i);
 
@@ -46,16 +46,17 @@ public class FindAllAnagramsInAString {
         return res;
     }
 
-    private static boolean helper(String s, String p){
+    private static boolean helper(String s, String p) {
         char[] sc = s.toCharArray();
         char[] pc = p.toCharArray();
         Arrays.sort(sc);
         Arrays.sort(pc);
-        for(int i = 0; i < sc.length; i++){
-            if(sc[i] != pc[i]) return false;
+        for (int i = 0; i < sc.length; i++) {
+            if (sc[i] != pc[i]) return false;
         }
         return true;
     }
+
     private static List<Integer> findAnagrams2(String s, String p) {
         List<Integer> result = new ArrayList();
 

@@ -22,7 +22,7 @@ public class BinTreeLvlOrderTraversalII {
         if (root == null) return ans;
         Queue<TreeNode> curLevel = new LinkedList<>();
         curLevel.add(root);
-        while(!curLevel.isEmpty()) {
+        while (!curLevel.isEmpty()) {
             Queue<TreeNode> nextLevel = new LinkedList<>();
             List<Integer> cur = new ArrayList<>();
             while (!curLevel.isEmpty()) {

@@ -1,14 +1,12 @@
 package com.Algorithm.LeetCode;
 
 public class AddDigits {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         System.out.println(addDigits(38));
     }
 
-    public static int addDigits(int num)
-    {
-        while(num / 10 != 0) {
+    public static int addDigits(int num) {
+        while (num / 10 != 0) {
             int temp = 0;
 
             while (num != 0) {
