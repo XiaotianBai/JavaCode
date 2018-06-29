@@ -15,8 +15,7 @@ public class RemoveElement {
             if (nums[i] == val) {
                 ans--;
                 if (i == nums.length - 1) break;
-                else for (int j = i; j < ans; j++)
-                    nums[j] = nums[j + 1];
+                else System.arraycopy(nums, i + 1, nums, i, ans - i);
                 i--;
             }
         }

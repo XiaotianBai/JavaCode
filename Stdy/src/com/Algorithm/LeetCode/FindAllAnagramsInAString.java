@@ -69,8 +69,7 @@ public class FindAllAnagramsInAString {
 
         final char[] sChars = s.toCharArray();
         int start = 0;
-        for (int i = 0; i < sChars.length; i++) {
-            final char c = sChars[i];
+        for (final char c : sChars) {
             sCounts[c]++;
             count--;
             while (sCounts[c] > counts[c]) {

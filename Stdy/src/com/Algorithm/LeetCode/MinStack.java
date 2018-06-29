@@ -1,8 +1,5 @@
 package com.Algorithm.LeetCode;
 
-import java.util.LinkedList;
-
-
 public class MinStack {
     private class LNode {
         int val;
