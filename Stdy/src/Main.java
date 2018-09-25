@@ -1,3 +1,5 @@
+import com.Algorithm.LeetCode.DeleteOperationForTwoStrings;
+import com.Algorithm.LeetCode.LongestValidParenthesis;
 import com.Algorithm.LeetCode.MapSum;
 import com.Algorithm.LeetCode.TeemoAttacking;
 
@@ -6,11 +8,8 @@ import com.Algorithm.LeetCode.TeemoAttacking;
  */
 public class Main {
     public static void main(String[] args) throws Exception {
-        MapSum test = new MapSum();
-        test.insert("a", 3);
-      //  System.out.println(test.sum("ap"));
-        test.insert("b", 2);
-        System.out.println(test.sum("a"));
+        DeleteOperationForTwoStrings test = new DeleteOperationForTwoStrings();
+        System.out.print(test.minDistance("intention", "execution"));
 
     }
 
